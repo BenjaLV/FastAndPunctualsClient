@@ -3,22 +3,25 @@ import { BackButton } from '.';
 
 interface Props {
     text: string;
-    className: string;
+    className?: string;
+    textColor?: string;
     children: ReactNode;
 }
-const Card = ({ text, children, className }: Props) => {
+
+const Card = ({ text, children, className, textColor }: Props) => {
     return (
-        <div className="flex flex-col items-center mt-10 text-colorText">
+        <div className={`flex flex-col items-center mt-10 text-colorText ${className}`}>
             <div className="flex items-center justify-between pb-8 px-0.5 bg-alternative shadow-md rounded-lg w-full sm:w-[24rem] md:w-[32rem] lg:w-[40rem] xl:w-[80rem] h-20">
                 <div className="ml-3 mt-2">
                     <BackButton />
                 </div>
-                <h3 className={`flex-1 text-center mr-6 font-bold ${className}`}> {text} </h3>
+                <h3 className={`flex-1 text-center mr-6 font-bold ${textColor}`}> {text} </h3>
             </div>
-            <div className="-mt-8 bg-white shadow-md rounded-lg w-full sm:w-[24rem] md:w-[32rem] lg:w-[40rem] xl:w-[80rem] h-495">
+            <div className="-mt-8 bg-white shadow-md rounded-lg w-full sm:w-[24rem] md:w-[32rem] lg:w-[40rem] xl:w-[80rem] max-h-[495px] overflow-y-auto min-h-[495px]">
                 {children}
             </div>
         </div>
     );
 };
+
 export default Card;
