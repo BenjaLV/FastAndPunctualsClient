@@ -91,3 +91,33 @@ export const LogoIcon = ({ className, ...rest }: SVGProps<SVGSVGElement>) => (
     </svg>
 )
 
+export const BackButton = ({ className, ...rest }: SVGProps<SVGSVGElement>) => (
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width={30}
+        height={30}
+        fill="none"
+        {...rest}
+        className={`${className}`}
+    >
+        <path
+            stroke="#3D1DF3"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M20 15H10m0 0 3.75-4M10 15l3.75 4"
+        />
+        <path
+            stroke="#3D1DF3"
+            strokeLinecap="round"
+            strokeWidth={2}
+            d="M10 6.338A9.954 9.954 0 0 1 15 5c5.523 0 10 4.477 10 10s-4.477 10-10 10S5 20.523 5 15c0-1.821.487-3.53 1.338-5"
+        />
+        <path
+            stroke="#3D1DF3"
+            strokeLinecap="round"
+            strokeWidth={2}
+            d="M20 23.662A9.955 9.955 0 0 1 15 25C9.477 25 5 20.523 5 15S9.477 5 15 5s10 4.477 10 10c0 1.821-.487 3.53-1.338 5"
+        />
+    </svg>
+)
