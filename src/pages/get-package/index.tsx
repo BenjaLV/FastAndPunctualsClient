@@ -41,7 +41,7 @@ const GetPackage = () => {
                     </div>
                 </MainCard>
 
-                <div className='mt-0.5 p-8'>
+                <div className='mt-0.5 p-8 flex justify-center'>
                     <Link href="/delivery" legacyBehavior>
                         <Button
                             text="Iniciar jornada"

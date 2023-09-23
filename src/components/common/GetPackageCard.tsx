@@ -27,7 +27,7 @@ const GetPackageCard = ({ text }: Props) => {
 
     return (
         <div
-            className="flex items-center border border-textColor h-auto w-[270px] bg-white rounded-s-lg py-px mb-2"
+            className="flex items-center border border-textColor h-auto w-full bg-white rounded-s-lg py-px mb-2"
             style={{
                 borderRadius: "10px",
             }}
@@ -52,13 +52,13 @@ const GetPackageCard = ({ text }: Props) => {
                 )}
             </label>
 
-            <div className="grid grid-cols-2 items-center border-textColor">
+            <div className="grid grid-cols-2 items-center w-full border-textColor">
                 <div className="mr-2 font-Poppins text-xs font-normal leading-4 text-textColor">
                     {text}
                 </div>
 
                 <div
-                    className="flex justify-center items-center border border-textColor h-[26px] w-[59px] ml-12"
+                    className="flex justify-center items-center border border-textColor h-[26px] w-[59px] ml-auto mr-1"
                     style={{
                         borderRadius: "10px",
                     }}
