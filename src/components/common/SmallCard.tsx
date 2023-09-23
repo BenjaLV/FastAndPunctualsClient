@@ -9,10 +9,13 @@ interface Props {
 }
 
 const SmallCard = ({ status, className, address, packageID }: Props) => {
-  const [showDeleteIcon, setShowDeleteIcon] = useState(false);
+  const [showDeleteIcon, setShowDeleteIcon] = useState(status !== "Entregado");
 
   const toggleDeleteIcon = () => {
-    setShowDeleteIcon(!showDeleteIcon);
+  
+    if (status !== "Entregado") {
+      setShowDeleteIcon(!showDeleteIcon);
+    }
   };
 
   return (
@@ -32,11 +35,9 @@ const SmallCard = ({ status, className, address, packageID }: Props) => {
             className={` ${className} text-textColor text-xs text-center rounded-full font-bold h-[15px] w-[81px] ml-4`}
           >
             {status}
-            {showDeleteIcon && status !== "Entregado" && (
-              <div className="mt-4 ml-14 absolute">
-                <TrashIcon />
-              </div>
-            )}
+            <div className="mt-4 ml-14 absolute">
+              <TrashIcon />
+            </div>
           </div>
         </div>
       </div>

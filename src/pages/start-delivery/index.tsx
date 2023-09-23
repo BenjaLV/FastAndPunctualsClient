@@ -44,7 +44,6 @@ const StartDelivery = () => {
             </div>
 
         </Layout>
-
     );
 };
 
