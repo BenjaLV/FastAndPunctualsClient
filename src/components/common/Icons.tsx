@@ -121,3 +121,62 @@ export const BackButton = ({ className, ...rest }: SVGProps<SVGSVGElement>) => (
         />
     </svg>
 )
+
+export const ArrowIcon = ({ className, ...rest }: SVGProps<SVGSVGElement>) => (
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width={9}
+        height={7}
+        fill="none"
+        {...rest}
+        className={`${className}`}
+    >
+        <path
+            fill="#3D1DF3"
+            d="M5.268 6.08a1 1 0 0 1-1.536 0L.239 1.89A1 1 0 0 1 1.007.25h6.986a1 1 0 0 1 .768 1.64L5.268 6.08Z"
+        />
+    </svg>
+)
+
+
+export const PackageIcon = ({ className, ...rest }: SVGProps<SVGSVGElement>) => (
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width={40}
+        height={40}
+        fill="none"
+        {...rest}
+        className={`${className}`}
+    >
+        <path
+            stroke="#3D1DF3"
+            strokeLinecap="round"
+            strokeWidth={1.5}
+            d="M33.313 17.333c-.05-1.748-.216-2.862-.776-3.813-.797-1.353-2.231-2.106-5.1-3.611l-2.667-1.4C22.43 7.281 21.26 6.667 20 6.667c-1.259 0-2.43.614-4.77 1.842l-2.667 1.4c-2.869 1.505-4.303 2.258-5.1 3.61-.796 1.353-.796 3.036-.796 6.403v.156c0 3.366 0 5.05.796 6.402.797 1.353 2.231 2.106 5.1 3.611l2.667 1.4c2.34 1.228 3.511 1.842 4.77 1.842 1.259 0 2.43-.614 4.77-1.842l2.667-1.4c2.869-1.505 4.303-2.258 5.1-3.61.56-.952.726-2.066.776-3.814"
+        />
+        <path
+            stroke="#3D1DF3"
+            strokeLinecap="round"
+            strokeWidth={1.5}
+            d="m32 14-5.333 2.667M20 20 8 14m12 6v12.667M20 20l6-3 .667-.333m0 0v4.666m0-4.666L14 10"
+        />
+    </svg>
+)
+
+
+export const TrashIcon = ({ className, ...rest }: SVGProps<SVGSVGElement>) => (
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width={20}
+        height={20}
+        fill="none"
+        {...rest}
+        className={`${className}`}
+    >
+        <path
+            stroke="#FF062E"
+            strokeLinecap="round"
+            d="M8.114 4.667a2 2 0 0 1 3.772 0M15.667 6H4.333M14.556 7.667l-.307 4.599c-.118 1.77-.177 2.655-.754 3.194-.576.54-1.463.54-3.237.54h-.516c-1.774 0-2.66 0-3.237-.54s-.636-1.424-.754-3.194l-.307-4.6M8.333 9.333l.334 3.334M11.667 9.333l-.334 3.334"
+        />
+    </svg>
+)
