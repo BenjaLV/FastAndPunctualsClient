@@ -12,7 +12,7 @@ const Layout = ({ children, title }: Props) => {
                 <title>{title || 'fazt&punctuals'}</title>
             </head>
 
-            <main>
+            <main className='container mx-auto flex items-center h-screen justify-center p-4 md:p-24'>
                 {children}
             </main>
         </>
