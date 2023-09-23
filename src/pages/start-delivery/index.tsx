@@ -34,10 +34,10 @@ const StartDelivery = () => {
                     className="flex justify-center botton-4"
                     style={{ marginTop: "1.2rem" }}
                 >
-                    <Link href="/packages">
+                    <Link href="/get-package">
                         <Button
                             text="Obtener paquetes"
-                            className="bg-secondary text-primary text-sm"
+                            className="bg-secondary text-primary hover:bg-alternative text-sm"
                         />
                     </Link>
                 </div>

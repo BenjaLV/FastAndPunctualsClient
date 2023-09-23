@@ -7,7 +7,7 @@ interface Props {
 
 const Button = ({ text, className }: Props) => {
     return (
-        <button className={`${className} rounded-full text-center w-[270px] h-7 `}>
+        <button className={`${className} rounded-full text-center w-[270px] h-7`}>
             {text}
         </button>
     );

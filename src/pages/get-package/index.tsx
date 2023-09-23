@@ -9,7 +9,7 @@ const GetPackage = () => {
     return (
         <Layout title='get-package'>
             <div className='flex flex-col'>
-                <MainCard text='Obtener paquetes' textColor='text-primary'>
+                <MainCard text='Obtener paquetes' textColor='text-primary' backHref='/start-delivery'>
                     <div>
                         <div className="border-dotted border-b border-gray-400 ">
                             <a
@@ -45,7 +45,7 @@ const GetPackage = () => {
                     <Link href="/delivery" legacyBehavior>
                         <Button
                             text="Iniciar jornada"
-                            className="bg-secondary text-primary text-sm"
+                            className="bg-secondary text-primary hover:bg-alternative text-sm"
                         />
                     </Link>
                 </div>

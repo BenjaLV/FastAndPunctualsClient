@@ -6,7 +6,7 @@ import LayoutLoginRegister from '@/components/layouts/LayoutLoginRegister'
 const Register = () => {
   return (
     <LayoutLoginRegister title='register'>
-        <MainCard text='Creá tu cuenta' textColor='text-primary'>
+        <MainCard text='Creá tu cuenta' textColor='text-primary' backHref='/login'>
             <FormRegister />
         </MainCard>
     </LayoutLoginRegister>
