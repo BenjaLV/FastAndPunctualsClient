@@ -102,7 +102,7 @@ const FormRegister = () => {
                 <div className="mt-4">
                     <Button
                         text="Iniciar sesión"
-                        className="bg-white border border-secondary text-textColor"
+                        className="bg-white border border-secondary text-textColor hover:bg-secondary"
                     ></Button>
                 </div>
             </div>

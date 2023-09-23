@@ -3,19 +3,20 @@ import FormLogin from '@/components/ui/FormLogin'
 import Button from '@/components/ui/Button'
 
 import React from 'react'
+import LayoutLoginRegister from '@/components/layouts/LayoutLoginRegister'
 
 const Login = () => {
     return (
-        <Layout title='Login'>
+        <LayoutLoginRegister title='Login'>
             <FormLogin>
                 <div className="mb-4">
                     <Button
                         text="Crear cuenta"
-                        className="bg-inherit	text-white border border-secondary"
+                        className="bg-inherit	text-white border border-secondary hover:bg-secondary hover:text-primary"
                     ></Button>
                 </div>
             </FormLogin>
-        </Layout>
+        </LayoutLoginRegister>
     )
 }
 
