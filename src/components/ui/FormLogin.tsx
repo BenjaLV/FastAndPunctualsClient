@@ -18,8 +18,8 @@ const FormLogin = ({ children }: Props) => {
     return (
         <div className="text-center w-full items-center text-sm">
             <form className="rounded px-8 pt-6 pb-8 mb-4">
-                <div className="mb-8 flex items-center justify-center md:justify-start"> {/* Modificamos esta línea */}
-                    <div className="max-w-[300px]"> {/* Agregamos un ancho máximo */}
+                <div className="mb-8 flex items-center justify-center md:justify-start">
+                    <div className="max-w-[300px]"> 
                         <LogoIcon />
                     </div>
                 </div>
