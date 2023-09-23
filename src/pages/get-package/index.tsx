@@ -42,7 +42,7 @@ const GetPackage = () => {
                 </MainCard>
 
                 <div className='mt-0.5 p-8 flex justify-center'>
-                    <Link href="/delivery" legacyBehavior>
+                    <Link href="/map-in-progress">
                         <Button
                             text="Iniciar jornada"
                             className="bg-secondary text-primary hover:bg-alternative text-sm"

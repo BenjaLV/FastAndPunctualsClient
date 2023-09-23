@@ -43,7 +43,7 @@ const MapInProgress = ({ addres, packageID, user }: Props) => {
                     </div>
                 </MainCard>
                 <div className='mt-0.5 p-8 flex justify-center'>
-                    <Link href="/" legacyBehavior>
+                    <Link href="/get-package">
                         <Button
                             text="Cancelar entrega"
                             className="bg-inherit text-white border border-secondary hover:bg-secondary hover:text-primary text-sm"
