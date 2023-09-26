@@ -322,3 +322,35 @@ export const PlusIcon = ({ className, ...rest }: SVGProps<SVGSVGElement>) => (
     </svg>
 )
 
+export const BackArrow = ({ className, ...rest }: SVGProps<SVGSVGElement>) => (
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width={17}
+        height={13}
+        fill="none"
+        {...rest}
+        className={`${className}`}
+    >
+        <path
+            fill="#3D1DF3"
+            d="M.92 7.268a1 1 0 0 1 0-1.536l4.19-3.493a1 1 0 0 1 1.64.768v6.986a1 1 0 0 1-1.64.768L.92 7.268ZM8.92 7.268a1 1 0 0 1 0-1.536l4.19-3.493a1 1 0 0 1 1.64.768v6.986a1 1 0 0 1-1.64.768L8.92 7.268Z"
+        />
+    </svg>
+)
+
+export const NextArrow = ({ className, ...rest }: SVGProps<SVGSVGElement>) => (
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width={16}
+        height={13}
+        fill="none"
+        {...rest}
+        className={`${className}`}
+
+    >
+        <path
+            fill="#3D1DF3"
+            d="M15.08 5.732a1 1 0 0 1 0 1.536l-4.19 3.493a1 1 0 0 1-1.64-.768V3.007a1 1 0 0 1 1.64-.768l4.19 3.493ZM8.08 5.732a1 1 0 0 1 0 1.536l-4.19 3.493a1 1 0 0 1-1.64-.768V3.007a1 1 0 0 1 1.64-.768l4.19 3.493Z"
+        />
+    </svg>
+)
