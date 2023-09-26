@@ -1,4 +1,5 @@
 import * as React from "react"
+import { useState, useEffect } from 'react';
 import { SVGProps } from "react"
 
 
@@ -354,3 +355,196 @@ export const NextArrow = ({ className, ...rest }: SVGProps<SVGSVGElement>) => (
         />
     </svg>
 )
+
+interface CircularProgressProps {
+    progressing: number;
+}
+
+
+export const CircularProgress = ({ progressing }: CircularProgressProps) => {
+    const [progress, setProgress] = useState(0); // Estado para controlar el progreso
+
+    // Simula un aumento gradual del progreso
+    useEffect(() => {
+        const interval = setInterval(() => {
+            if (progress < 100) {
+                setProgress(progress + 1);
+            }
+        }, 50);
+
+        return () => clearInterval(interval);
+    }, [progress]);
+
+    // Calcula la longitud del trazo y el desplazamiento en función del progreso
+    const circumference = 2 * Math.PI * 32.5; // El radio es 32.5 y 6 es el grosor de la línea
+    const strokeDashArray = `${(circumference * progress) / 100} ${circumference}`;
+
+    return (
+        <svg xmlns="http://www.w3.org/2000/svg" width={71} height={71} fill="none">
+            <path
+                stroke="#F2F2F2"
+                strokeOpacity={0.6}
+                strokeWidth={6}
+                d="M3 35.5C3 17.55 17.55 3 35.5 3S68 17.55 68 35.5 53.45 68 35.5 68 3 53.45 3 35.5Z"
+            />
+            <path
+                stroke="url(#a)"
+                strokeWidth={6}
+                d="M35.5 3C53.45 3 68 17.55 68 35.5S53.45 68 35.5 68 3 53.45 3 35.5a32.35 32.35 0 0 1 5.645-18.31"
+                style={{
+                    strokeDasharray: strokeDashArray,
+                    transition: 'stroke-dasharray 0.5s ease-in-out',
+                }}
+            />
+            <g filter="url(#b)">
+                <circle
+                    cx={5.5}
+                    cy={5.5}
+                    r={5.5}
+                    fill="#00EA77"
+                    transform="matrix(1 0 0 -1 5 21)"
+                />
+            </g>
+            <defs>
+                <radialGradient
+                    id="a"
+                    cx={0}
+                    cy={0}
+                    r={1}
+                    gradientTransform="rotate(-90 35.5 0) scale(32.5)"
+                    gradientUnits="userSpaceOnUse"
+                >
+                    <stop stopColor="#C7FFB1" />
+                    <stop offset={1} stopColor="#00EA77" />
+                </radialGradient>
+                <filter
+                    id="b"
+                    width={15}
+                    height={15}
+                    x={3}
+                    y={10}
+                    colorInterpolationFilters="sRGB"
+                    filterUnits="userSpaceOnUse"
+                >
+                    <feFlood floodOpacity={0} result="BackgroundImageFix" />
+                    <feColorMatrix
+                        in="SourceAlpha"
+                        result="hardAlpha"
+                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                    />
+                    <feOffset dy={2} />
+                    <feGaussianBlur stdDeviation={1} />
+                    <feComposite in2="hardAlpha" operator="out" />
+                    <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+                    <feBlend
+                        in2="BackgroundImageFix"
+                        result="effect1_dropShadow_184_1736"
+                    />
+                    <feBlend
+                        in="SourceGraphic"
+                        in2="effect1_dropShadow_184_1736"
+                        result="shape"
+                    />
+                </filter>
+            </defs>
+        </svg>
+    );
+};
+
+
+
+interface Props {
+    progreso: number;
+}
+
+export const CustomCircularProgress = ({ progreso }: Props) => {
+    const radius = 32.5;
+    const circumference = 2 * Math.PI * radius;
+    const dashOffset = ((100 - progreso) / 100) * circumference;
+
+    // Tamaño del puntero más pequeño
+    const pointerRadius = 6;
+
+    // Gradiente de color verde
+    const gradientId = 'greenGradient';
+    const gradientColors = ['#00EA77', '#C7FFB1'];
+
+    // Calcular el ángulo en radianes basado en el progreso y comenzando desde las 12 (0 grados)
+    const angle = (360 * progreso) / 100;
+
+
+
+    // Estado para controlar el estilo del puntero
+    const [pointerStyle, setPointerStyle] = useState({
+        transition: 'transform 0.5s ease-in-out',
+        transform: `rotate(${angle}deg) translate(${radius}px)`,
+        transformOrigin: 'center',
+    });
+
+    useEffect(() => {
+        // Actualizar el estilo del puntero cuando cambia el progreso
+        const newAngle = (360 * progreso) / 100;
+        setPointerStyle({
+            ...pointerStyle,
+            transform: `rotate(${newAngle}deg) translate(${radius}px)`,
+        });
+    }, [progreso]);
+
+    return (
+        <svg width={73} height={73} xmlns="http://www.w3.org/2000/svg">
+            {/* Definir el gradiente radial */}
+            <defs>
+                <radialGradient id={gradientId} cx="50%" cy="50%">
+                    {gradientColors.map((color, index) => (
+                        <stop
+                            key={index}
+                            offset={`${(index / (gradientColors.length - 1)) * 100}%`}
+                            stopColor={color}
+                        />
+                    ))}
+                </radialGradient>
+            </defs>
+            {/* Círculo de fondo */}
+            <circle
+                className="circle-background"
+                cx={35.5}
+                cy={35.5}
+                r={radius}
+                fill="transparent"
+                strokeWidth={6}
+                stroke="#F2F2F2"
+            />
+            {/* Línea de progreso */}
+            <circle
+                className="circle-progress"
+                cx={35.5}
+                cy={35.5}
+                r={radius}
+                fill="transparent"
+                strokeWidth={8}
+                stroke={`url(#${gradientId})`} // Usar el gradiente radial
+                strokeDasharray={circumference}
+                strokeDashoffset={dashOffset} // Usar dashOffset basado en el progreso
+                style={{ transition: 'stroke-dashoffset 0.5s ease-in-out' }}
+            />
+            {/* Círculo verde como puntero */}
+            <circle
+                cx={35.5}
+                cy={35.5}
+                r={pointerRadius} // Tamaño del puntero
+                fill="#00EA77" 
+                style={pointerStyle} 
+            />
+            <text
+                x="50%"
+                y="50%"
+                textAnchor="middle"
+                dominantBaseline="middle"
+                fontSize="16 bold" 
+                fill="#3D1DF3"
+            >
+                {Math.round(progreso)}% {/* Redondear el progreso y eliminar los decimales */}
+            </text>
+        </svg>
+    );
+};
