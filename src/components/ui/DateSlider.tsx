@@ -3,7 +3,11 @@ import DateCard from '../common/DateCard';
 import { BackArrow, NextArrow } from '../common';
 import { addDays } from 'date-fns';
 
-const DateSlider: React.FC = () => {
+interface DateSliderProps {
+    onDateSelect: (date: Date) => void;
+}
+
+const DateSlider: React.FC<DateSliderProps> = ({ onDateSelect }) => {
     const [currentIndex, setCurrentIndex] = useState(2);
     const [dates, setDates] = useState(generateDates());
     const [selectedDateIndex, setSelectedDateIndex] = useState(2);
@@ -40,6 +44,7 @@ const DateSlider: React.FC = () => {
 
     const handleDateClick = (index: number) => {
         setSelectedDateIndex(index);
+        onDateSelect(dates[index]);
     };
 
     useEffect(() => {
@@ -65,6 +70,7 @@ const DateSlider: React.FC = () => {
                         date={date}
                         isActive={index === currentIndex || index === selectedDateIndex}
                         onClick={() => handleDateClick(index)}
+
                     />
                 ))}
                 <NextArrow

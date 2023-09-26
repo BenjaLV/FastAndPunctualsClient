@@ -13,13 +13,10 @@ const poppins = Poppins({
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-
-
     <NextUIProvider>
       <main className={`${poppins}`}>
         <Component {...pageProps} />
       </main>
     </NextUIProvider>
-
   )
 }

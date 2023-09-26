@@ -1,6 +1,7 @@
+import React, { useState } from 'react'
+
 import MainCard from '@/components/common/MainCard'
 import Layout from '@/components/layouts/Layout'
-import React from 'react'
 import { Avatar } from '@nextui-org/react'
 import DateSlider from '@/components/ui/DateSlider';
 
@@ -12,6 +13,15 @@ interface Props {
 }
 
 const ManageOrders = ({ user, image, packages, deliveryman }: Props) => {
+
+    const [selectedDate, setSelectedDate] = useState<Date | null>(null);
+
+    const handleDateSelection = (date: Date) => {
+        setSelectedDate(date);
+    };
+
+
+
     return (
         <Layout title='manage-orders'>
             <MainCard text='Gestionar pedidos' backHref='/manage-orders' className='w-full'>
@@ -23,7 +33,16 @@ const ManageOrders = ({ user, image, packages, deliveryman }: Props) => {
                     </div>
                 </div>
                 <div className='mt-8'>
-                    <DateSlider />
+                    <DateSlider onDateSelect={handleDateSelection} />
+                </div>
+                <div className='border border-textColor/50 w-[270px] h-[323px] rounded-xl mx-auto mt-5'>
+                    <div className='flex justify-between'>
+                        <h1 className='font-bold mx-3'>Detalles</h1>
+                        <p className='mx-3 text-textColor text-sm '>
+                            {selectedDate?.toLocaleDateString()}
+                        </p>
+
+                    </div>
                 </div>
             </MainCard>
         </Layout>
