@@ -11,7 +11,7 @@ const GetPackage = () => {
             <div className='flex flex-col'>
                 <MainCard text='Obtener paquetes' textColor='text-primary' backHref='/start-delivery'>
                     <div>
-                        <div className="border-dotted border-b border-gray-400 ">
+                        <div className="border-dotted border-b border-gray-400 w-[270px] mx-8 ">
                             <a
                                 className="my-2 text-textColor hover:underline flex flex-col items-center text-center text-xs"
                                 href="/login"
