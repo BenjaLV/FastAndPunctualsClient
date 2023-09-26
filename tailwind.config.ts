@@ -25,6 +25,9 @@ const config: Config = {
         lg: { min: "1024px", max: "1279px" },
         xl: { min: "1280px", max: "2001px" },
       },
+      height: {
+        "350": "370px",
+      },
     },
   },
   plugins: [],

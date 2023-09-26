@@ -5,7 +5,7 @@ import CardDeliveryMan from "@/components/common/CardDeliveryMan";
 
 const DeliveryMan = () => {
   return (
-    <Layout title="get-package">
+    <Layout title="Delivery-man">
       <div className="flex flex-col">
         <MainCard
           text="Repartidores"
