@@ -41,13 +41,28 @@ const FormLogin = ({ children }: Props) => {
     },
     validationSchema,
     onSubmit: async (values) => {
-      const responseNextAuth = await signIn("credentials", {
-        email: values.email,
-        password: values.password,
-        redirect: false,
-      });
+      try {
+        const responseNextAuth = await signIn("credentials", {
+          email: values.email,
+          password: values.password,
+          redirect: false,
+        });
 
-      router.push("/start-delivery");
+        // Comprobar si la autenticación fue exitosa
+        if (!responseNextAuth?.error) {
+          // La autenticación fue exitosa, redirigir al usuario
+          alert("Sesión exitosa");
+          router.push("/start-delivery");
+        } else {
+          // La autenticación falló, manejar el error
+          // Puedes mostrar un mensaje de error al usuario aquí
+          alert("Error en las credenciales");
+          console.error("Autenticación fallida:", responseNextAuth.error);
+        }
+      } catch (error) {
+        // Manejar cualquier otro error que pueda ocurrir durante la autenticación
+        console.error("Error de autenticación:", error);
+      }
     },
   });
 
@@ -99,7 +114,6 @@ const FormLogin = ({ children }: Props) => {
               <LockClosedIcon className="h-5 w-5 text-white" />
             </span>
             <input
-              required
               type={showPassword ? "text" : "password"}
               id="password"
               name="password"
