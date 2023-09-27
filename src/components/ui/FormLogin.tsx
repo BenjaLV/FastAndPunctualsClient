@@ -19,43 +19,43 @@ const FormLogin = ({ children }: Props) => {
   const [showPassword, setShowPassword] = useState(false);
   const [password, setPassword] = useState<string>("");
 
-  const router = useRouter();
+  // const router = useRouter();
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
 
-  const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setEmail(event.target.value);
-  };
+  // const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  //   setEmail(event.target.value);
+  // };
 
-  const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setPassword(event.target.value);
-  };
+  // const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  //   setPassword(event.target.value);
+  // };
 
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    setErrors([]);
+  // const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+  //   event.preventDefault();
+  //   setErrors([]);
 
-    const responseNextAuth = await signIn("credentials", {
-      email,
-      password,
-      redirect: false,
-    });
+  //   const responseNextAuth = await signIn("credentials", {
+  //     email,
+  //     password,
+  //     redirect: false,
+  //   });
 
-    console.log(responseNextAuth);
+  //   console.log(responseNextAuth);
 
-    if (responseNextAuth?.error) {
-      setErrors(responseNextAuth.error.split(","));
-      return;
-    }
+  //   if (responseNextAuth?.error) {
+  //     setErrors(responseNextAuth.error.split(","));
+  //     return;
+  //   }
 
-    router.push("/start-delivery");
-  };
+  //   router.push("/start-delivery");
+  // };
 
   return (
     <div className="text-center w-full items-center text-sm">
-      <form className="rounded px-8 pt-6 pb-8 mb-4" onSubmit={handleSubmit}>
+      <form className="rounded px-8 pt-6 pb-8 mb-4" >
         <div className="mb-8 flex items-center justify-center md:justify-start">
           <div className="max-w-[300px]">
             <LogoIcon />
@@ -65,7 +65,7 @@ const FormLogin = ({ children }: Props) => {
           <UserIcon className="h-5 w-5 text-white" />
           <input
             value={email}
-            onChange={handleEmailChange}
+            // onChange={handleEmailChange}
             className="pl-2 outline-none border-none bg-inherit w-full placeholder-white"
             type="text"
             name="email"
@@ -93,7 +93,6 @@ const FormLogin = ({ children }: Props) => {
             id="password"
             placeholder={showPassword ? "Contraseña" : "**********"}
             value={password}
-            onChange={handlePasswordChange}
             required
           />
         </div>
