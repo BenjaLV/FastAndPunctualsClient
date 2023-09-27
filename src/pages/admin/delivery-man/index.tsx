@@ -11,6 +11,7 @@ const DeliveryMan = () => {
           text="Repartidores"
           textColor="text-primary"
           backHref="/start-delivery"
+          className="w-300"
         >
           <div className="mt-9">
             <CardDeliveryMan></CardDeliveryMan>

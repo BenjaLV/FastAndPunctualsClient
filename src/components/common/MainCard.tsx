@@ -7,9 +7,17 @@ interface Props {
   textColor?: string;
   children: ReactNode;
   backHref: string;
+  height?: string;
 }
 
-const Card = ({ text, children, className, textColor, backHref }: Props) => {
+const Card = ({
+  text,
+  children,
+  className,
+  textColor,
+  backHref,
+  height,
+}: Props) => {
   return (
     <div className={`flex flex-col items-center  text-textColor ${className}`}>
       <div className="flex items-center justify-between pb-8 px-0.5 bg-alternative shadow-md rounded-lg w-full sm:w-[24rem] md:w-[32rem] lg:w-[40rem] xl:w-[80rem] h-20">
@@ -20,7 +28,9 @@ const Card = ({ text, children, className, textColor, backHref }: Props) => {
           {text}
         </h3>
       </div>
-      <div className="-mt-8 bg-white shadow-md rounded-lg w-full sm:w-[24rem] md:w-[32rem] lg:w-[40rem] xl:w-[80rem] max-h-[495px] overflow-y-auto min-h-[495px]">
+      <div
+        className={`-mt-8 bg-white shadow-md rounded-lg w-full sm:w-[24rem] md:w-[32rem] lg:w-[40rem] xl:w-[80rem]  overflow-y-auto  ${height}`}
+      >
         {children}
       </div>
     </div>
