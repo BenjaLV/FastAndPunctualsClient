@@ -72,19 +72,7 @@ const FormRegister = () => {
                             value={passwordRepeat}
                             onChange={(e) => setPasswordRepeat(e.target.value)}
                         />
-                        <span className="absolute inset-y-0 right-0 flex items-center pr-3">
-                            {showPassword ? (
-                                <EyeSlashIcon
-                                    className="h-5 w-5 text-textColor cursor-pointer"
-                                    onClick={togglePasswordVisibility}
-                                />
-                            ) : (
-                                <EyeIcon
-                                    className="h-5 w-5 text-textColor cursor-pointer"
-                                    onClick={togglePasswordVisibility}
-                                />
-                            )}
-                        </span>
+
                     </div>
                 </div>
 
