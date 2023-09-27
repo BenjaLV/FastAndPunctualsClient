@@ -4,8 +4,9 @@ import { useRouter } from "next/router";
 import { signIn } from "next-auth/react";
 import {
   LockClosedIcon,
-  LockOpenIcon,
   UserIcon,
+  EyeIcon,
+  EyeSlashIcon,
 } from "@heroicons/react/24/outline";
 import Button from "./Button";
 import { useFormik } from "formik";
@@ -70,46 +71,60 @@ const FormLogin = ({ children }: Props) => {
             <LogoIcon />
           </div>
         </div>
-        <div className=" flex items-center appearance-none bg-inherit border border-white rounded-lg py-0 px-3 text-white leading-tight focus:outline-none h-[45px] w-full">
-          <UserIcon className="h-5 w-5 text-white" />
-          <input
-            value={values.email}
-            onChange={handleChange}
-            onBlur={handleBlur}
-            className=" pl-2 outline-none border-none bg-inherit w-full placeholder-white"
-            type="text"
-            name="email"
-            id="email"
-            placeholder="email@contraseña.com"
-            required
-          />
+        <div className=" relative">
+          <div className="relative rounded-md">
+            <span className="absolute inset-y-0 left-0 flex items-center pl-3">
+              <UserIcon className="h-5 w-5 text-white" />
+            </span>
+            <input
+              value={values.email}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              type="email"
+              id="email"
+              name="email"
+              placeholder="email@contraseña.com"
+              className={`pl-10 focus:outline-none h-[45px]  bg-inherit text-white w-full pr-3 py-2 border rounded-md ${
+                touched.email && errors.email ? "border-red-500" : ""
+              } border-white placeholder-white sm:w-full md:w-full lg:w-full`}
+            />
+          </div>
         </div>
         {touched.email && errors.email ? (
           <div className="text-red-500 text-xs">{errors.email}</div>
         ) : null}
-        <div className="flex items-center mt-3  appearance-none bg-inherit border border-white rounded-lg py-0 px-3 text-white  leading-tight focus:outline-none h-[45px] w-full">
-          {showPassword ? (
-            <LockOpenIcon
-              className="h-5 w-5 text-white cursor-pointer"
-              onClick={togglePasswordVisibility}
+        <div className=" mt-4 relative">
+          <div className="relative rounded-md">
+            <span className="absolute inset-y-0 left-0 flex items-center pl-3">
+              <LockClosedIcon className="h-5 w-5 text-white" />
+            </span>
+            <input
+              required
+              type={showPassword ? "text" : "password"}
+              id="password"
+              name="password"
+              placeholder="**********"
+              className={`pl-10 focus:outline-none h-[45px]  bg-inherit text-white w-full pr-3 py-2 border rounded-md ${
+                touched.email && errors.email ? "border-red-500" : ""
+              } border-white placeholder-white sm:w-full md:w-full lg:w-full`}
+              value={values.password}
+              onChange={handleChange}
+              onBlur={handleBlur}
             />
-          ) : (
-            <LockClosedIcon
-              className="h-5 w-5 text-white cursor-pointer"
-              onClick={togglePasswordVisibility}
-            />
-          )}
-          <input
-            className="pl-2 outline-none border-none bg-inherit w-full placeholder-white"
-            type={showPassword ? "text" : "password"}
-            name="password"
-            id="password"
-            placeholder={showPassword ? "Contraseña" : "**********"}
-            value={values.password}
-            onChange={handleChange}
-            onBlur={handleBlur}
-            required
-          />
+            <span className="absolute inset-y-0 right-0 flex items-center pr-3">
+              {showPassword ? (
+                <EyeSlashIcon
+                  className="h-5 w-5 text-white cursor-pointer"
+                  onClick={togglePasswordVisibility}
+                />
+              ) : (
+                <EyeIcon
+                  className="h-5 w-5 text-white cursor-pointer"
+                  onClick={togglePasswordVisibility}
+                />
+              )}
+            </span>
+          </div>
         </div>
         <>
           {touched.password && errors.password ? (
