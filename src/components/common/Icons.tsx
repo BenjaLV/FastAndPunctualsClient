@@ -607,3 +607,51 @@ export const AddPackagesButton = ({
     </defs>
   </svg>
 );
+export const MinusCircle = ({
+  className,
+  ...rest
+}: SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={16}
+    height={16}
+    fill="none"
+    {...rest}
+    className={`${className}`}
+  >
+    <path
+      stroke="#3D1DF3"
+      strokeLinecap="round"
+      d="M9.6 8H6.4M5.333 3.38A5.333 5.333 0 1 1 3.38 5.333"
+    />
+    <path
+      stroke="#3D1DF3"
+      strokeLinecap="round"
+      d="M10.667 12.62a5.333 5.333 0 1 1 1.953-1.953"
+    />
+  </svg>
+);
+export const PlusCircule = ({
+  className,
+  ...rest
+}: SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={16}
+    height={16}
+    fill="none"
+    {...rest}
+    className={`${className}`}
+  >
+    <path
+      stroke="#3D1DF3"
+      strokeLinecap="round"
+      d="M9.6 8H8m0 0H6.4M8 8V6.4M8 8v1.6M5.333 3.38A5.333 5.333 0 1 1 3.38 5.333"
+    />
+    <path
+      stroke="#3D1DF3"
+      strokeLinecap="round"
+      d="M10.667 12.62a5.333 5.333 0 1 1 1.953-1.953"
+    />
+  </svg>
+);

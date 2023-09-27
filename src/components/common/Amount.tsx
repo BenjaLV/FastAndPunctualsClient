@@ -1,3 +1,5 @@
+import { MinusCircle, PlusCircule } from "@/components/common";
+
 import { useState } from "react";
 import React from "react";
 
@@ -17,19 +19,11 @@ const Amount = () => {
       <div className="border border-primary rounded-lg h-[35px] flex justify-center items-center w-[115px]">
         <div className="flex justify-center items-center border border-colorText rounded-lg h-[26px] w-[68px]">
           <button onClick={handleSubtract}>
-            <img
-              className="h-3 w-3 mr-2"
-              src="/minusCircle.svg"
-              alt="minusCircle"
-            />
+            <MinusCircle className="mx-1" />
           </button>
-          <p className="text-colorText">{amount}</p>
+          <p className="text-colorText mx-1">{amount}</p>
           <button onClick={handleAdd}>
-            <img
-              className="h-3 w-3 ml-2"
-              src="/plus-circle.svg"
-              alt="plus-circle"
-            />
+            <PlusCircule className="mx-1"></PlusCircule>
           </button>
         </div>
       </div>
