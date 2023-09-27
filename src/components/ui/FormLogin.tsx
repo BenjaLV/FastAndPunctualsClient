@@ -24,7 +24,11 @@ const FormLogin = ({ children }: Props) => {
       .email("El correo electrónico no es válido")
       .required("El correo electrónico es requerido"),
     password: Yup.string()
-      .min(6, "La contraseña debe tener al menos 6 caracteres")
+      .min(6, "La contraseña debe tener al menos 8 caracteres")
+      .matches(
+        /(?=.*[A-Z])/,
+        "La contraseña debe contener al menos una letra mayúscula"
+      )
       .required("La contraseña es requerida"),
   });
 
