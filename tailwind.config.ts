@@ -28,5 +28,10 @@ const config: Config = {
     },
   },
   plugins: [],
+  compilerOptions: {
+    // ...
+    types: ["js-cookie"],
+    // ...
+  },
 };
 export default config;
