@@ -49,7 +49,7 @@ const ManageOrders = ({ user, image, packages, deliveryman }: Props) => {
 
     return (
         <Layout title="manage-orders">
-            <MainCard text="Gestionar pedidos" backHref="/manage-orders" className="w-full">
+            <MainCard text="Gestionar pedidos" backHref="/admin/manage-orders" className="w-full">
                 <div className="flex items-center">
                     <Avatar src={image} name={user} className="bg-alternative w-14 h-14 top-4 left-4" />
                     <div className="ml-8">
