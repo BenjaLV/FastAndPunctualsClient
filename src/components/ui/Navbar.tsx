@@ -11,7 +11,7 @@ const Navbar = () => {
     try {
       await signOut();
       console.log("llegue");
-      router.push("/");
+      router.push("/login");
     } catch (error) {
       console.error("Error al cerrar sesión:", error);
     }
