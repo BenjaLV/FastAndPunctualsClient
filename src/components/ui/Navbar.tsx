@@ -9,7 +9,7 @@ const Navbar = () => {
   const router = useRouter();
   const handleSignOut = async () => {
     try {
-      await signOut();
+      await signOut({ redirect: false });
       console.log("llegue");
       router.push("/login");
     } catch (error) {
@@ -27,14 +27,12 @@ const Navbar = () => {
       </div>
 
       <div>
-        <Link href="/" legacyBehavior>
-          <motion.a whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}>
-            <LogOutButton
-              onClick={handleSignOut}
-              className="cursor-pointer shadow-xl transform transition-transform hover:translate-y-[-2px] rounded-md"
-            />
-          </motion.a>
-        </Link>
+        <motion.a whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}>
+          <LogOutButton
+            onClick={handleSignOut}
+            className="cursor-pointer shadow-xl transform transition-transform hover:translate-y-[-2px] rounded-md"
+          />
+        </motion.a>
       </div>
     </nav>
   );
