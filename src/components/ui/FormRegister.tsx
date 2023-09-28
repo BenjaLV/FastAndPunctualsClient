@@ -12,7 +12,7 @@ const validationSchema = Yup.object({
     .min(8, 'Password must be at least 8 characters')
     .required('Password is required'),
   passwordRepeat: Yup.string()
-    .oneOf([Yup.ref('password'), null] as const, 'Passwords must match')
+    .oneOf([Yup.ref('password'), undefined], 'Passwords must match')
     .required('Password confirmation is required') as Yup.StringSchema<string>,
 });
 
@@ -23,6 +23,7 @@ const FormRegister = () => {
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
+
 
   const handleSubmit = async (
     values: { email: string; password: string; passwordRepeat: string },
