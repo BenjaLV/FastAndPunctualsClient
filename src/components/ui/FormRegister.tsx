@@ -1,18 +1,3 @@
-<<<<<<< HEAD
-import React, { useState } from "react";
-import dotenv from "dotenv";
-import {
-  UserIcon,
-  LockClosedIcon,
-  EyeIcon,
-  EyeSlashIcon,
-} from "@heroicons/react/24/outline";
-import Button from "./Button";
-import { signIn } from "next-auth/react";
-import axios from "axios";
-import { useRouter } from "next/router";
-dotenv.config();
-=======
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/router';
@@ -20,146 +5,19 @@ import { UserIcon, LockClosedIcon, EyeIcon, EyeSlashIcon } from '@heroicons/reac
 import Button from './Button';
 import { Formik, Form, Field, ErrorMessage, FormikHelpers } from 'formik';
 import * as Yup from 'yup';
->>>>>>> feature/form-register-nextauth
 
 const validationSchema = Yup.object({
-    email: Yup.string().email('Invalid email address').required('Email is required'),
-    password: Yup.string()
-      .min(8, 'Password must be at least 8 characters')
-      .required('Password is required'),
-    passwordRepeat: Yup.string()
-      .oneOf([Yup.ref('password'), null] as const, 'Passwords must match')
-      .required('Password confirmation is required') as Yup.StringSchema<string>,
-  });
-  
+  email: Yup.string().email('Invalid email address').required('Email is required'),
+  password: Yup.string()
+    .min(8, 'Password must be at least 8 characters')
+    .required('Password is required'),
+  passwordRepeat: Yup.string()
+    .oneOf([Yup.ref('password'), null] as const, 'Passwords must match')
+    .required('Password confirmation is required') as Yup.StringSchema<string>,
+});
+
 const FormRegister = () => {
   const [showPassword, setShowPassword] = useState(false);
-<<<<<<< HEAD
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [passwordRepeat, setPasswordRepeat] = useState("");
-  const [errors, setErrors] = useState<string[]>([]);
-
-  const router = useRouter();
-
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    setErrors([]);
-
-    const response = await axios.post(
-      "http://localhost:6000/api/users/register",
-      { email, password },
-      {
-        headers: {
-          "Content-Type": "application/json",
-        },
-        withCredentials: true,
-      }
-    );
-
-    const responseAPI = await response.data;
-
-    if (!response) {
-      setErrors(responseAPI.message);
-      return;
-    }
-
-    const responseNextAuth = await signIn("credentials", {
-      email,
-      password,
-      redirect: false,
-    });
-
-    if (responseNextAuth?.error) {
-      setErrors(responseNextAuth.error.split(","));
-      return;
-    }
-
-    router.push("/dashboard");
-  };
-
-  const togglePasswordVisibility = () => {
-    setShowPassword(!showPassword);
-  };
-
-  return (
-    <div className="flex flex-col items-center text-center p-4 mx-auto">
-      <form onSubmit={handleSubmit}>
-        <div className="mb-4 mt-24 relative">
-          <div className="relative rounded-md">
-            <span className="absolute inset-y-0 left-0 flex items-center pl-3">
-              <UserIcon className="h-5 w-5 text-textColor" />
-            </span>
-            <input
-              required
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              type="email"
-              id="email"
-              name="email"
-              placeholder="email@contraseña.com"
-              className="pl-10 focus:outline-none text-textColor w-full pr-3 py-2 border rounded-md border-colorText placeholder-textColor sm:w-full md:w-full lg:w-full"
-            />
-          </div>
-        </div>
-        <div className="mb-4 relative">
-          <div className="relative rounded-md">
-            <span className="absolute inset-y-0 left-0 flex items-center pl-3">
-              <LockClosedIcon className="h-5 w-5 text-textColor" />
-            </span>
-            <input
-              required
-              type={showPassword ? "text" : "password"}
-              id="password"
-              name="password"
-              placeholder="**********"
-              className="pl-10 focus:outline-none text-textColor w-full pr-3 py-2 border rounded-md border-colorText placeholder-textColor sm:w-full md:w-full lg:w-full"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            <span className="absolute inset-y-0 right-0 flex items-center pr-3">
-              {showPassword ? (
-                <EyeSlashIcon
-                  className="h-5 w-5 text-textColor cursor-pointer"
-                  onClick={togglePasswordVisibility}
-                />
-              ) : (
-                <EyeIcon
-                  className="h-5 w-5 text-textColor cursor-pointer"
-                  onClick={togglePasswordVisibility}
-                />
-              )}
-            </span>
-          </div>
-        </div>
-        <div className="mb-4 relative">
-          <div className="relative rounded-md">
-            <span className="absolute inset-y-0 left-0 flex items-center pl-3">
-              <LockClosedIcon className="h-5 w-5 text-textColor" />
-            </span>
-            <input
-              required
-              type={showPassword ? "text" : "password"}
-              id="password-repeat"
-              name="password-repeat"
-              placeholder="Confirmar contraseña"
-              className="pl-10 focus:outline-none text-textColor w-full pr-3 py-2 border rounded-md border-colorText placeholder-textColor sm:w-full md:w-full lg:w-full"
-              value={passwordRepeat}
-              onChange={(e) => setPasswordRepeat(e.target.value)}
-            />
-          </div>
-        </div>
-
-        <div className="mt-24 flex justify-between items-center">
-          <Button text="Crear" className="bg-secondary text-textColor"></Button>
-        </div>
-      </form>
-      <div className="mt-2">
-        <a
-          className="my-2 text-textColor hover:underline text-sm"
-          href="/login"
-        >
-=======
   const router = useRouter();
 
   const togglePasswordVisibility = () => {
@@ -266,15 +124,11 @@ const FormRegister = () => {
       </Formik>
       <div className="mt-2">
         <a className="my-2 text-textColor hover:underline text-sm" href="/login">
->>>>>>> feature/form-register-nextauth
           ¿Ya tenés una cuenta?
         </a>
         <div className="mt-4">
           <Button
-<<<<<<< HEAD
-=======
             type="submit"
->>>>>>> feature/form-register-nextauth
             text="Iniciar sesión"
             className="bg-white border border-secondary text-textColor hover:bg-secondary"
           ></Button>
