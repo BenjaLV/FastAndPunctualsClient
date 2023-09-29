@@ -6,7 +6,7 @@ const ProfileDeliveryMan = () => {
   return (
     <>
       <Layout title="Add-Package">
-        <Card text="Perfil de repartidor" backHref="" height="h-20">
+        <Card text="Perfil de repartidor" backHref="/admin/delivery-man" height="h-20">
           <h3></h3>
         </Card>
       </Layout>

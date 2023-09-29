@@ -11,7 +11,7 @@ const Packages = () => {
         <MainCard
           text="Paquetes"
           textColor="text-primary"
-          backHref="/start-delivery"
+          backHref="/admin/manage-orders"
         >
           <div className="flex flex-col pt-4 px-4">
             <div className="text-colorText text-xs ">
