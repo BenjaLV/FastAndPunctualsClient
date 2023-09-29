@@ -6,9 +6,9 @@ import Button from "./Button";
 const FormAddPackages = () => {
   return (
     <div>
-      <div className=" w-full ">
-        <form className="rounded px-5 pt-4  sm:w-full mt-14 text-xs">
-          <div className="mb-6 w-full">
+      <form className="rounded px-5 mt-16 text-xs">
+        <div className="flex flex-col justify-center">
+          <div className="mb-7">
             <input
               className=" pb-2 pr-2 border-b border-primary  outline-none bg-inherit w-full  placeholder-primary"
               type="text"
@@ -17,7 +17,7 @@ const FormAddPackages = () => {
               placeholder="Dirección"
             />
           </div>
-          <div className="mb-6">
+          <div className="mb-7">
             <input
               className=" pb-2 pr-2 border-b border-primary  outline-none bg-inherit w-full  placeholder-primary"
               type="text"
@@ -35,7 +35,7 @@ const FormAddPackages = () => {
               placeholder="Peso del paquete (kg)"
             />
           </div>
-          <div className="grid grid-cols-2 divide-x divide-primary mb-[146px] ">
+          <div className="flex divide-x divide-primary mb-[135px] ">
             <div className=" ">
               <Date />
             </div>
@@ -43,14 +43,14 @@ const FormAddPackages = () => {
               <Amount />
             </div>
           </div>
-          <div className="flex items-center ">
-            <Button
-              text="Agregar"
-              className="bg-secondary text-primary text-sm w-full "
-            ></Button>
-          </div>
-        </form>
-      </div>
+        </div>
+        <div className="flex items-center ">
+          <Button
+            text="Agregar"
+            className="bg-secondary text-primary text-sm w-full mt-1"
+          ></Button>
+        </div>
+      </form>
     </div>
   );
 };
