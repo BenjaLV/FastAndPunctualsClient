@@ -20,7 +20,7 @@ const Card = ({
 }: Props) => {
   return (
     <div className={`flex flex-col items-center  text-textColor ${className}`}>
-      <div className="flex items-center justify-between pb-8 px-0.5 bg-alternative shadow-md rounded-lg w-full sm:w-[24rem] md:w-[32rem] lg:w-[40rem] xl:w-[80rem] h-20">
+      <div className="flex items-center justify-between pb-8 px-0.5 bg-alternative shadow-md rounded-lg w-full  h-20">
         <div className="ml-3 mt-2">
           <BackButton href={backHref} />
         </div>
@@ -29,7 +29,7 @@ const Card = ({
         </h3>
       </div>
       <div
-        className={`-mt-8 bg-white shadow-md rounded-lg w-full sm:w-[24rem] md:w-[32rem] lg:w-[40rem] xl:w-[80rem]  overflow-y-auto  ${height}`}
+        className={`-mt-8 bg-white shadow-md rounded-lg w-full box-border  overflow-y-auto  ${height}`}
       >
         {children}
       </div>

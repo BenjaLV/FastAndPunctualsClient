@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { ArrowIcon } from ".";
 
 interface Props {
-  paquetes: number;
+  paquetes?: number;
   text: string;
   className: string;
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 const HomeCard = ({ paquetes, text, className, children }: Props) => {
@@ -17,10 +17,7 @@ const HomeCard = ({ paquetes, text, className, children }: Props) => {
 
   return (
     <div
-      className={` ${className} rounded-[10px] bg-cardColor shadow-md overflow-x-hidden overflow-y-auto ${
-        isExpanded ? "h-[500px]" : "h-[200px]"
-      }`}
-      style={{ boxShadow: "0px 2px 6px 0px rgba(0, 0, 0, 0.24)" }}
+      className={` ${className} rounded-[10px] bg-cardColor shadow-md overflow-x-hidden overflow-y-auto`}
     >
       <div className="p-2 ml-2">
         <div className="flex items-center">
@@ -32,12 +29,16 @@ const HomeCard = ({ paquetes, text, className, children }: Props) => {
           </div>
         </div>
         <h3 className="text-xs font-normal leading-5 text-left text-textColor">
-          {paquetes ? `${paquetes} entregados` : "Sin repartos pendientes"}
+          {paquetes
+            ? `${paquetes} paquetes entregados`
+            : "Sin repartos pendientes"}
         </h3>
       </div>
-      <div className="flex flex-col justify-center items-center  mb-4 space-y-3"> 
-        {children}
-      </div>
+      {isExpanded && (
+        <div className="flex flex-col justify-center items-center  mb-4 space-y-3">
+          {children}
+        </div>
+      )}
     </div>
   );
 };

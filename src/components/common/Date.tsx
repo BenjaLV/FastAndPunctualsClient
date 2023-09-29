@@ -2,7 +2,7 @@ import React from "react";
 
 const Date = () => {
   return (
-    <div className="relative max-w-sm">
+    <div className="w-32">
       <div className="mb-2">Fecha de entrega:</div>
       <div>
         <input
