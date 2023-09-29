@@ -20,6 +20,7 @@ const config: Config = {
         deliverydp: "#C7FFB1",
         inprogress: "#F8E169",
         inactive: "rgba(61, 29, 243, 0.4)",
+        textAlert: "#00EA77",
       },
       screens: {
         xs: { max: "639px" },

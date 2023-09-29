@@ -99,13 +99,14 @@ const FormLogin = ({ children }: Props) => {
               id="email"
               name="email"
               placeholder="email@contraseña.com"
-              className={`pl-10 focus:outline-none h-[45px]  bg-inherit text-white w-full pr-3 py-2 border rounded-md ${touched.email && errors.email ? "border-red-500" : ""
-                } border-white placeholder-white sm:w-full md:w-full lg:w-full`}
+              className={`pl-10 focus:outline-none h-[45px]  bg-inherit text-white w-full pr-3 py-2 border rounded-md ${
+                touched.email && errors.email ? "border-textAlert" : ""
+              } border-white placeholder-white sm:w-full md:w-full lg:w-full`}
             />
           </div>
         </div>
         {touched.email && errors.email ? (
-          <div className="text-red-500 text-xs">{errors.email}</div>
+          <div className="text-textAlert text-xs">{errors.email}</div>
         ) : null}
         <div className=" mt-4 relative">
           <div className="relative rounded-md">
@@ -117,8 +118,9 @@ const FormLogin = ({ children }: Props) => {
               id="password"
               name="password"
               placeholder="**********"
-              className={`pl-10 focus:outline-none h-[45px]  bg-inherit text-white w-full pr-3 py-2 border rounded-md ${touched.email && errors.email ? "border-red-500" : ""
-                } border-white placeholder-white sm:w-full md:w-full lg:w-full`}
+              className={`pl-10 focus:outline-none h-[45px]  bg-inherit text-white w-full pr-3 py-2 border rounded-md ${
+                touched.password && errors.password ? "border-textAlert" : ""
+              } border-white placeholder-white sm:w-full md:w-full lg:w-full`}
               value={values.password}
               onChange={handleChange}
               onBlur={handleBlur}
@@ -140,7 +142,9 @@ const FormLogin = ({ children }: Props) => {
         </div>
         <>
           {touched.password && errors.password ? (
-            <div className="text-red-500 text-xs mt-0 ">{errors.password}</div>
+            <div className="text-textAlert text-xs mt-0 ">
+              {errors.password}
+            </div>
           ) : null}
         </>
 
