@@ -17,7 +17,8 @@ const Navbar = () => {
     }
   };
   return (
-    <nav className="bg-primary shadow-md p-4 flex justify-between items-center">
+    <nav className="bg-primary shadow-md p-4 flex justify-between items-center fixed top-0 left-0 right-0">
+      {" "}
       <div className="flex items-center">
         <Link href="/start-delivery" legacyBehavior>
           <motion.a whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}>
@@ -25,7 +26,6 @@ const Navbar = () => {
           </motion.a>
         </Link>
       </div>
-
       <div>
         <motion.a whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}>
           <LogOutButton
