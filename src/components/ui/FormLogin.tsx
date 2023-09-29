@@ -11,6 +11,8 @@ import {
 import Button from "./Button";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 interface Props {
   children: ReactNode;
@@ -19,7 +21,6 @@ interface Props {
 const FormLogin = ({ children }: Props) => {
   const router = useRouter();
 
-  // Define el esquema de validación Yup
   const validationSchema = Yup.object().shape({
     email: Yup.string()
       .email("El correo electrónico no es válido")
@@ -33,7 +34,6 @@ const FormLogin = ({ children }: Props) => {
       .required("La contraseña es requerida"),
   });
 
-  // Define el formulario con Formik
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -48,20 +48,15 @@ const FormLogin = ({ children }: Props) => {
           redirect: false,
         });
 
-        // Comprobar si la autenticación fue exitosa
         if (!responseNextAuth?.error) {
-          // La autenticación fue exitosa, redirigir al usuario
-          alert("Sesión exitosa");
+          toast.success("Sesión exitosa");
           router.push("/start-delivery");
         } else {
-          // La autenticación falló, manejar el error
-          // Puedes mostrar un mensaje de error al usuario aquí
-          alert("Error en las credenciales");
+          toast.error("Error en las credenciales");
           console.error("Autenticación fallida:", responseNextAuth.error);
         }
       } catch (error) {
-        // Manejar cualquier otro error que pueda ocurrir durante la autenticación
-        console.error("Error de autenticación:", error);
+        toast.error("Error de autenticación");
       }
     },
   });
