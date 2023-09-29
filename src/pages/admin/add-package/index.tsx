@@ -1,15 +1,20 @@
 import React from "react";
 import Layout from "@/components/layouts/Layout";
 import FormAddPackages from "@/components/ui/FormAddPackages";
-import Card from "@/components/common/MainCard";
+import MainCard from "@/components/common/MainCard";
 
 const AddPackageAdmin = () => {
   return (
     <>
       <Layout title="Add-Package">
-        <Card text="Agregar paquetes" backHref="" height="h-495">
+        <MainCard
+          text="Agregar paquetes"
+          backHref=""
+          className="w-300"
+          height="h-495"
+        >
           <FormAddPackages />
-        </Card>
+        </MainCard>
       </Layout>
     </>
   );

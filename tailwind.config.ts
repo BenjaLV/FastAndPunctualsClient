@@ -16,6 +16,7 @@ const config: Config = {
         alternative: "#C7FFB1",
         textColor: "#3D1DF3",
         cardColor: "#FFFFFF",
+        greyColor: "#4333",
         deliverydp: "#C7FFB1",
         inprogress: "#F8E169",
         inactive: "rgba(61, 29, 243, 0.4)",
