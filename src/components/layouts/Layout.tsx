@@ -15,7 +15,7 @@ const Layout = ({ children, title, className }: Props) => {
       <SessionProvider>
         <Navbar></Navbar>
         <main
-          className={`${className} container mx-auto flex items-center h-screen justify-center p-4 md:p-24`}
+         className={`${className} container mx-auto flex items-center justify-center p-10 xl:p-24 lg:p-18 md:p-16`}
         >
           {children}
         </main>

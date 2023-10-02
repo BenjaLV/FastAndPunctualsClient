@@ -5,6 +5,7 @@ import { UserIcon, LockClosedIcon, EyeIcon, EyeSlashIcon } from '@heroicons/reac
 import Button from './Button';
 import { Formik, Form, Field, ErrorMessage, FormikHelpers } from 'formik';
 import * as Yup from 'yup';
+import Link from 'next/link';
 
 const validationSchema = Yup.object({
   email: Yup.string().email('Invalid email address').required('Email is required'),
@@ -116,7 +117,6 @@ const FormRegister = () => {
 
           <div className="mt-24 flex justify-between items-center">
             <Button
-              type="submit"
               text="Crear"
               className="bg-secondary text-textColor"
             ></Button>
@@ -128,11 +128,12 @@ const FormRegister = () => {
           ¿Ya tenés una cuenta?
         </a>
         <div className="mt-4">
-          <Button
-            type="submit"
-            text="Iniciar sesión"
-            className="bg-white border border-secondary text-textColor hover:bg-secondary"
-          ></Button>
+          <Link href="/login">
+            <Button
+              text="Iniciar sesión"
+              className="bg-white border border-secondary text-textColor hover:bg-secondary"
+            ></Button>
+          </Link>
         </div>
       </div>
     </div>

@@ -5,6 +5,7 @@ import Layout from "@/components/layouts/Layout";
 import DateSlider from "@/components/ui/DateSlider";
 import { CircularProgress, CustomCircularProgress } from "@/components/common";
 import Button from "@/components/ui/Button";
+import Link from "next/link";
 
 interface Props {
   user: string;
@@ -98,7 +99,9 @@ const ManageOrders = ({ user, image, packages, deliveryman }: Props) => {
               </AvatarGroup>
             </div>
             <div className="mr-2">
-              <Button text="Ver" className="w-[53px] h-[29px] bg-secondary" />
+              <Link href="/admin/delivery-man">
+                <Button text="Ver" className="w-[53px] h-[29px] bg-secondary" />
+              </Link>
             </div>
           </div>
           <div className="border-dotted border-b border-gray-400 w-[250px] mx-2 mt-2"></div>
@@ -112,7 +115,9 @@ const ManageOrders = ({ user, image, packages, deliveryman }: Props) => {
             </div>
           </div>
           <div className="flex justify-end mr-2 mt-[-6px]">
-            <Button text="Ver" className="w-[53px] h-[29px] bg-secondary" />
+            <Link href="/admin/packages">
+              <Button text="Ver" className="w-[53px] h-[29px] bg-secondary" />
+            </Link>
           </div>
         </div>
       </MainCard>

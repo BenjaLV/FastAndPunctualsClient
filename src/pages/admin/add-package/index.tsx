@@ -7,12 +7,7 @@ const AddPackageAdmin = () => {
   return (
     <>
       <Layout title="Add-Package">
-        <MainCard
-          text="Agregar paquetes"
-          backHref=""
-          className="w-300"
-          height="h-495"
-        >
+        <MainCard text="Agregar paquetes" backHref="/admin/packages" height="h-495">
           <FormAddPackages />
         </MainCard>
       </Layout>

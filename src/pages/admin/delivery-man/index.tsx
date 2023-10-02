@@ -10,7 +10,7 @@ const DeliveryMan = () => {
         <MainCard
           text="Repartidores"
           textColor="text-primary"
-          backHref="/start-delivery"
+          backHref="/admin/manage-orders"
           className="w-300"
         >
           <div className="mt-9">
