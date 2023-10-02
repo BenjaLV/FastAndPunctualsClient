@@ -22,7 +22,6 @@
     "axios": "^1.5.1",
     "date-fns": "^2.30.0",
     "dotenv": "^16.3.1",
-    "eslint": "8.50.0",
     "eslint-config-next": "13.5.2",
     "formik": "^2.4.5",
     "framer-motion": "^10.16.4",
@@ -40,6 +39,9 @@
   },
   "devDependencies": {
     "@types/js-cookie": "^3.0.4",
-    "@types/react-fontawesome": "^1.6.5"
+    "@types/react-fontawesome": "^1.6.5",
+    "@typescript-eslint/eslint-plugin": "^6.7.4",
+    "@typescript-eslint/parser": "^6.7.4",
+    "eslint": "^8.50.0"
   }
 }
